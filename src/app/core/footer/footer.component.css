@@ -1,0 +1,32 @@
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.footer-title {
+  color: #728a9b;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 1em;
+  padding-top: 2em;
+}
+
+.footer-menu-item-link {
+  color: white;
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.footer-menu-item-link:hover {
+  color: white;
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+.row {
+  margin: 0 !important;
+}

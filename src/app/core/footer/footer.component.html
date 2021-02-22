@@ -1,0 +1,12 @@
+<div class="footer">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-3" *ngFor="let navBlock of navBlocks">
+			<div class="row footer-title">{{navBlock.title}}</div>
+			<div class="row footer-menu-item" *ngFor="let item of navBlock.items">
+				<a class="footer-menu-item-link">{{item.title}}
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

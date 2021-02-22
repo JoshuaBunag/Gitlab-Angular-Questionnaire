@@ -1,9 +1,39 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "./src",
+    "paths": {
+      "@constants/*": [
+        "./app/constants/*"
+      ],
+      "@components/*": [
+        "./app/components/*"
+      ],
+      "@directives/*": [
+        "./app/directives/*"
+      ],
+      "@env/*": [
+        "./environments/*"
+      ],
+      "@models/*": [
+        "./app/models/*"
+      ],
+      "@protected/*": [
+        "./app/protected/*"
+      ],
+      "@services/*": [
+        "./app/services/*"
+      ],
+      "@states/*": [
+        "./app/state-management/*"
+      ],
+      "rxjs": [
+        "./vendor/rxjs.ts"
+      ]
+    }
   },
   "files": [
     "src/main.ts",
