@@ -18,8 +18,8 @@
       "@env/*": [
         "./environments/*"
       ],
-      "@models/*": [
-        "./app/models/*"
+      "@entities/*": [
+        "./app/entities/*"
       ],
       "@protected/*": [
         "./app/protected/*"
