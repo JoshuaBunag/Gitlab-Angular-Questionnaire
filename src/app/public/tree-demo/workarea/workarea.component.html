@@ -1,0 +1,13 @@
+<h2 class="text-center">Work Area</h2>
+<div class="divider"></div>
+<div class="row justify-content-center">
+  <p-organizationChart [value]="tree" styleClass="company">
+    <ng-template let-treeNode pTemplate="NUMBER_RULE">
+      {{ treeNode.data.name }}
+    </ng-template>
+    <ng-template let-treeNode pTemplate="SCENARIO">
+      {{ treeNode.data.name }}
+    </ng-template>
+  </p-organizationChart>
+  <div class="row"></div>
+</div>

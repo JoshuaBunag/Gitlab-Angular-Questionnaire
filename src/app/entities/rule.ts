@@ -1,12 +1,11 @@
-import { Step } from './step';
-import { NextStepAllocation } from './next-step-allocation';
-//import { NextStepAllocation } from '@entities/next-step-allocation';
+import { Step } from '@entities/step';
+import { NextStepAllocation } from '@entities/next-step-allocation';
 
 export class Rule extends Step{
   public start: boolean;
   public decisionFieldName: string;
 
-  public nextStepAllocations: NextStepAllocation[] = [];
+  public children: NextStepAllocation[] = [];
 
   constructor(id: number, postRef: number, name: string, stepType: string, start: boolean, decisionFieldName: string) {
     super(id, postRef, name, stepType);
@@ -15,6 +14,6 @@ export class Rule extends Step{
   }
 
   addNextStepAllocation(nextStepAllocation: NextStepAllocation) {
-    this.nextStepAllocations.push(nextStepAllocation);
+    this.children.push(nextStepAllocation);
   }
 }
