@@ -1,14 +1,16 @@
-.tree-demo-cont{
-    display: flex;
-    flex-direction: row;
-    background-color: lightgray;
-    height: 90vh;
+.tree-demo-cont {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
 }
 
-.sidebar{
-    width: 20%;
-    background-color: lightblue;
+.sidebar {
+  width: 12%;
+  // background-color: lightblue;
+  border: 1px solid black;
 }
 .workarea {
-    width: 60%;
+  width: 76%;
+
+  background-color: lightgray;
 }

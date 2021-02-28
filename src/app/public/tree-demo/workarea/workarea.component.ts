@@ -10,6 +10,7 @@ import { TreeNode } from 'primeng/api';
 })
 export class WorkareaComponent implements OnInit {
   tree: TreeNode[] = [];
+  btnVisibility: boolean = false;
   constructor(private decisionTreeService: DecisionTreeService) {}
 
   ngOnInit(): void {

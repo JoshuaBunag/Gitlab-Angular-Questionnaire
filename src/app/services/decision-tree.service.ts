@@ -32,9 +32,15 @@ export class DecisionTreeService {
 
   getNodeStyleClass(dtoTree: Knot): string {
 
+    let nodeStyle = 'node ';
     if (dtoTree instanceof Rule) {
-      return "rule"
+      nodeStyle += "rule"
     }
+
+    if (dtoTree instanceof Scenario) {
+      nodeStyle += "scenario"
+    }
+    return nodeStyle;
   }
   genNode(dtoTree: Knot): TreeNode {
     let rootNode: TreeNode = {
@@ -61,19 +67,19 @@ export class DecisionTreeService {
     let scen1 = new Scenario(
       1,
       undefined,
-      'Scenario: Smaller than 20',
+      'Younger than 20',
       'SCENARIO'
     );
     let scen2 = new Scenario(
       2,
       undefined,
-      'Scenario: BETWEEN 20/30',
+      'Between 20/30',
       'SCENARIO'
     );
     let scen3 = new Scenario(
       3,
       undefined,
-      'Scenario: OLDER than 30',
+      'Older than 30',
       'SCENARIO'
     );
 

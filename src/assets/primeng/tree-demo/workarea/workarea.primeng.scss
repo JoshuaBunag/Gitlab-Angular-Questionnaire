@@ -1,0 +1,120 @@
+.node {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 5px !important;
+  background: transparent !important;
+  .node-container {
+    display: flex;
+    flex-direction: row;
+    .node-content {
+      margin-left: 50px;
+      width: 220px;
+    }
+    .node-buttons {
+      width: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+  .node-title {
+    font-weight: bold;
+    justify-content: center;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    color: white;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.7em;
+    padding-bottom: 0.5em;
+    margin: 0;
+  }
+
+  &.rule {
+    .node-title {
+      background-color: royalblue;
+    }
+  }
+
+  &.scenario {
+    .node-title {
+      background-color: green;
+    }
+  }
+  .node-data {
+    padding: 0.8em;
+    background-color: white;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    .data-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      color: black;
+      font-size: 0.9em;
+      .col-attr-name {
+        display: flex;
+        width: 25%;
+        justify-content: left;
+      }
+      .col-attr-value {
+        padding-left: 5px;
+        display: flex;
+        width: 75%;
+        justify-content: left;
+      }
+      &.scen-row {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.p-organizationchart .p-organizationchart-node-content {
+  border: none;
+  .p-node-toggler {
+    background-color: royalblue;
+    color: white;
+  }
+}
+.p-organizationchart {
+  .p-organizationchart-line {
+    &-top,
+    &-right,
+    &-left {
+      border-color: black;
+    }
+    &-down {
+      background-color: black;
+    }
+  }
+}
+.p-button.p-button-outlined {
+  border: 3px solid !important;
+}
+
+.p-button.p-button-icon-only.p-button-rounded {
+  margin: 5px;
+  height: 2em;
+  width: 2em;
+}
+
+.node-container:hover {
+  .node-buttons-display {
+    display: flex;
+  }
+}
+
+.node-buttons-display {
+  display: none;
+  flex-direction: column;
+}
+
+.p-button-icon.pi {
+  font-weight: bold;
+}
