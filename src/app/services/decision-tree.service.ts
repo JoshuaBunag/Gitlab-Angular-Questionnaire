@@ -4,15 +4,14 @@ import { Rule } from '../entities/rule';
 import { Scenario } from '../entities/scenario';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Step } from '../entities/step';
-import { NextStepAllocation } from '../entities/next-step-allocation';
+import { Knot } from '../entities/knot';
+import { NextKnotAllocation } from '../entities/next-knot-allocation';
 import { TreeNode } from 'primeng/api';
 import { faGrinTongueSquint } from '@fortawesome/free-solid-svg-icons';
 @Injectable({
   providedIn: 'root',
 })
 export class DecisionTreeService {
-  
   constructor() {}
 
   genTree(dtoTree: Rule): TreeNode[] {
@@ -24,27 +23,33 @@ export class DecisionTreeService {
   genChildNodes(dtoTree: Rule): TreeNode[] {
     let childList: TreeNode[] = [];
     if (dtoTree.children.length > 0) {
-      for (let nextStepAllocation of dtoTree.children) {
-        childList.push(this.genNode(nextStepAllocation.nextStep));
+      for (let nextKnotAllocation of dtoTree.children) {
+        childList.push(this.genNode(nextKnotAllocation.nextKnot));
       }
     }
     return childList;
   }
 
-  genNode(dtoTree: Step): TreeNode {
-    
+  getNodeStyleClass(dtoTree: Knot): string {
+
+    if (dtoTree instanceof Rule) {
+      return "rule"
+    }
+  }
+  genNode(dtoTree: Knot): TreeNode {
     let rootNode: TreeNode = {
       data: {
         id: dtoTree.id,
         decisionFieldName:
           dtoTree instanceof Rule ? dtoTree.decisionFieldName : undefined,
         name: dtoTree.name,
-        postRef: dtoTree.postRef,
+        postId: dtoTree.postId,
         start: dtoTree instanceof Rule ? dtoTree.start : undefined,
-        stepType: dtoTree.stepType,
+        knotType: dtoTree.knotType,
       },
-      type: dtoTree.stepType,
       expanded: true,
+      styleClass: this.getNodeStyleClass(dtoTree),
+      type: dtoTree instanceof Rule ? 'RULE' : 'SCENARIO',      
       children:
         dtoTree instanceof Rule ? this.genChildNodes(dtoTree) : undefined,
     };
@@ -72,7 +77,7 @@ export class DecisionTreeService {
       'SCENARIO'
     );
 
-    let nextStepAllocation1 = new NextStepAllocation(
+    let nextKnotAllocation1 = new NextKnotAllocation(
       1,
       'GREATER_THAN',
       '30',
@@ -81,7 +86,7 @@ export class DecisionTreeService {
       undefined,
       scen3
     );
-    let nextStepAllocation2 = new NextStepAllocation(
+    let nextKnotAllocation2 = new NextKnotAllocation(
       2,
       'ELSE',
       undefined,
@@ -91,10 +96,10 @@ export class DecisionTreeService {
       scen2
     );
     let rule2 = new Rule(4, undefined, 'Regel 2', 'NUMBER_RULE', false, 'AGE');
-    rule2.addNextStepAllocation(nextStepAllocation1);
-    rule2.addNextStepAllocation(nextStepAllocation2);
+    rule2.addNextKnotAllocation(nextKnotAllocation1);
+    rule2.addNextKnotAllocation(nextKnotAllocation2);
 
-    let nextStepAllocation3 = new NextStepAllocation(
+    let nextKnotAllocation3 = new NextKnotAllocation(
       3,
       'SMALLER_THAN',
       '20',
@@ -103,7 +108,7 @@ export class DecisionTreeService {
       undefined,
       scen1
     );
-    let nextStepAllocation4 = new NextStepAllocation(
+    let nextKnotAllocation4 = new NextKnotAllocation(
       4,
       'ELSE',
       undefined,
@@ -121,8 +126,8 @@ export class DecisionTreeService {
       true,
       'AGE'
     );
-    rootRule.addNextStepAllocation(nextStepAllocation3);
-    rootRule.addNextStepAllocation(nextStepAllocation4);
+    rootRule.addNextKnotAllocation(nextKnotAllocation3);
+    rootRule.addNextKnotAllocation(nextKnotAllocation4);
 
     return of(rootRule);
     //return this.http.get<any[]>(environment.apiBaseUrl + '/api/gui/menu-items/all');

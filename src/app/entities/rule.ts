@@ -1,19 +1,19 @@
-import { Step } from '@entities/step';
-import { NextStepAllocation } from '@entities/next-step-allocation';
+import { Knot } from '@entities/knot';
+import { NextKnotAllocation } from '@entities/next-knot-allocation';
 
-export class Rule extends Step{
+export class Rule extends Knot{
   public start: boolean;
   public decisionFieldName: string;
 
-  public children: NextStepAllocation[] = [];
+  public children: NextKnotAllocation[] = [];
 
-  constructor(id: number, postRef: number, name: string, stepType: string, start: boolean, decisionFieldName: string) {
-    super(id, postRef, name, stepType);
+  constructor(id: number, postId: number, name: string, knotType: string, start: boolean, decisionFieldName: string) {
+    super(id, postId, name, knotType);
     this.start = start;
     this.decisionFieldName = decisionFieldName;
   }
 
-  addNextStepAllocation(nextStepAllocation: NextStepAllocation) {
-    this.children.push(nextStepAllocation);
+  addNextKnotAllocation(nextKnotAllocation: NextKnotAllocation) {
+    this.children.push(nextKnotAllocation);
   }
 }

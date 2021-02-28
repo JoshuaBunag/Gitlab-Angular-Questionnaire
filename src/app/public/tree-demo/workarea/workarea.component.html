@@ -1,9 +1,9 @@
 <h2 class="text-center">Work Area</h2>
 <div class="divider"></div>
 <div class="row justify-content-center">
-  <p-organizationChart [value]="tree" styleClass="company">
-    <ng-template let-treeNode pTemplate="NUMBER_RULE">
-      {{ treeNode.data.name }}
+  <p-organizationChart [value]="tree">
+    <ng-template let-treeNode pTemplate="RULE">
+      <div class="node-header p-corner-top">{{ treeNode.data.name }}</div>
     </ng-template>
     <ng-template let-treeNode pTemplate="SCENARIO">
       {{ treeNode.data.name }}

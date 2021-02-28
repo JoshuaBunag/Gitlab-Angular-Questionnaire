@@ -1,5 +1,5 @@
-import { Step } from '@entities/step';
-export class Scenario extends Step {
-    constructor(id: number, postRef: number, name: string, stepType: string) {
-        super(id, postRef, name, stepType);      }
+import { Knot } from '@entities/knot';
+export class Scenario extends Knot {
+    constructor(id: number, postId: number, name: string, knotType: string) {
+        super(id, postId, name, knotType);      }
 }

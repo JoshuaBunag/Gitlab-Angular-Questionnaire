@@ -1,14 +1,14 @@
-.row {
-  margin-right: 0;
-  margin-left: 0;
+.tree-demo-cont{
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+    height: 90vh;
 }
-.sidebar {
-  padding-top: 5px;
-  margin-right: 0;
-  margin-left: 0;
+
+.sidebar{
+    width: 20%;
+    background-color: lightblue;
 }
 .workarea {
-  padding-top: 5px;
-  margin-right: 0;
-  margin-left: 0;
+    width: 60%;
 }

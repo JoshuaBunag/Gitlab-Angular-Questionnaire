@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 // PRIMENG
 // --------------------------------------------------------
 import { OrganizationChartModule } from 'primeng/organizationchart';
+import { MenubarModule } from 'primeng/menubar';
+
+import { ButtonModule } from 'primeng/button';
 // --------------------------------------------------------
 // PROJECT CORE
 // --------------------------------------------------------
@@ -45,7 +48,9 @@ import { WorkareaComponent } from './public/tree-demo/workarea/workarea.componen
     NgbModule,
     FontAwesomeModule,
     OrganizationChartModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ButtonModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

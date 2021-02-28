@@ -1,0 +1,27 @@
+.navbar-styles {
+  border: none;
+}
+
+.p-menubar {
+  border: none;
+
+  &.p-component {
+    background-color: royalblue;
+    border-radius: 0;
+    color: whitesmoke;
+  }
+
+  & .p-menubar-root-list > .p-menuitem {
+    > .p-menuitem-link {
+      .p-menuitem-text {
+        color: whitesmoke;
+      }
+      &:focus {
+        .p-menuitem-text {
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
