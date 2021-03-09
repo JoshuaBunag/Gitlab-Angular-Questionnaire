@@ -1,4 +1,5 @@
 <h2 class="text-center">Work Area</h2>
+<h3>Tree Name: <span *ngIf="entity!= undefined" >{{entity.label }}</span></h3>
 <div class="divider"></div>
 <div class="justify-content-center">
   <p-organizationChart [value]="tree">

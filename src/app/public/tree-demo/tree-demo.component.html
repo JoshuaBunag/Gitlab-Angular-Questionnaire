@@ -1,10 +1,10 @@
 <div class="tree-demo-cont">
   <div class="sidebar">
-      <app-sidebar-left></app-sidebar-left>
+      <app-sidebar-left (listItemEmitter)="showEntity($event)"></app-sidebar-left>
   </div>
 
   <div class="workarea">
-      <app-workarea></app-workarea>
+      <app-workarea [entity]="entity"></app-workarea>
   </div>
 
   <div class="sidebar">

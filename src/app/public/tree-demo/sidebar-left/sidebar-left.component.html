@@ -1,1 +1,25 @@
-<h3>Left Sidebar</h3>
+<div class="sidebar-con justify-content-center">
+  <p-listbox
+    [options]="listItemList"
+    filter="true"
+    placeholder="Enter object key"
+    [style]="{ height: '100%' }"
+  >
+    <!-- [(ngModel)]="selectedFav" -->
+    <ng-template let-listItem pTemplate="item">
+      <p-contextMenu
+        #ctxmenu
+        [target]="ctxmenudiv"
+        [model]="ctxItemList"
+        appendTo="body"
+        event="contextmenu"
+      ></p-contextMenu>
+      <div #ctxmenudiv class="fav-item d-flex align-items-center" (contextmenu)="toggleCtxMenu(listItem)">
+        <div class="col">
+          <fa-icon [icon]="listItem.value.icon"></fa-icon>
+          <span> {{ listItem.label }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </p-listbox>
+</div>

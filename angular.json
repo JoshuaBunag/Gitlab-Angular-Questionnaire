@@ -38,7 +38,8 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "src/assets/primeng/themes.scss", 
-              "src/assets/primeng/tree-demo/workarea/workarea.primeng.scss"
+              "src/assets/primeng/tree-demo/workarea/workarea.primeng.scss",
+              "src/assets/primeng/tree-demo/workarea/sidebar-left.primeng.scss",
             ],
             "scripts": []
           },

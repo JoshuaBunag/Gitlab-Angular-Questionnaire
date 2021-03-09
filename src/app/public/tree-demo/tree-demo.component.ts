@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreeDemoComponent implements OnInit {
 
+  entity: any;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  showEntity(entity: any): void {
+    console.log('show entity');
+    this.entity = entity;
+    console.log(entity);
+  }
 }

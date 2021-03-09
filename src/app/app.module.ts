@@ -8,13 +8,28 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// --------------------------------------------------------
-// PRIMENG
-// --------------------------------------------------------
-import { OrganizationChartModule } from 'primeng/organizationchart';
-import { MenubarModule } from 'primeng/menubar';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
+// --------------------------------------------------------
+// PRIME NG
+// --------------------------------------------------------
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
+import { MultiSelectModule } from 'primeng/multiselect';
+import {OrganizationChartModule} from 'primeng/organizationchart';
+import { ListboxModule } from 'primeng/listbox';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TabViewModule } from 'primeng/tabview';
+import { DragDropModule } from 'primeng/dragdrop';
+import { MenubarModule } from 'primeng/menubar';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 // --------------------------------------------------------
 // PROJECT CORE
 // --------------------------------------------------------
@@ -46,11 +61,14 @@ import { WorkareaComponent } from './public/tree-demo/workarea/workarea.componen
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     FontAwesomeModule,
     OrganizationChartModule,
     BrowserAnimationsModule,
     ButtonModule,
     MenubarModule,
+    ListboxModule,
+    ContextMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
