@@ -1,0 +1,44 @@
+<div class="node-container">
+    <div class="node-content">
+      <div class="node-title">Rule</div>
+      <div class="node-data">
+        <div class="data-row">
+          <div class="col-attr-name">Name</div>
+          <div class="col-attr-value">
+            {{ treeNode.data.name }}
+          </div>
+        </div>
+        <div class="data-row">
+          <div class="col-attr-name"><span>Type</span></div>
+          <div class="col-attr-value">
+            {{ treeNode.data.knotType }}
+          </div>
+        </div>
+        <div class="data-row">
+          <div class="col-attr-name"><span>Field</span></div>
+          <div class="col-attr-value">
+            {{ treeNode.data.decisionFieldName }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="node-buttons">
+      <!-- *ngIf="btnVisibility" -->
+      <div class="node-buttons-display">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          class="p-button-rounded p-button-success p-button-outlined"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-times"
+          class="p-button-rounded p-button-danger p-button-outlined"
+        ></button>
+      </div>
+    </div>
+  </div>
