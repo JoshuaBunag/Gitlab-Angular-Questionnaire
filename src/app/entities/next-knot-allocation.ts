@@ -7,26 +7,8 @@ export class NextKnotAllocation {
   public compareValue: string;
 
   public idNextKnot: number;
-  public nextKnotPostId: number;
 
   public ownerKnot: Rule;
   public nextKnot: Knot;
 
-  constructor(
-    id: number,
-    allocationType: string,
-    compareValue: string,
-    idNextKnot: number,
-    nextKnotPostId: number,
-    ownerKnot: Rule,
-    nextKnot: Knot
-  ) {
-    this.id = id;
-    this.allocationType = compareValue;
-    this.compareValue = compareValue;
-    this.idNextKnot = idNextKnot;
-    this.nextKnotPostId = nextKnotPostId;
-    this.ownerKnot = ownerKnot;
-    this.nextKnot = nextKnot;
-  }
 }

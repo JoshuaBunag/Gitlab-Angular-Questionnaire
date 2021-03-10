@@ -29,7 +29,6 @@ export class SidebarLeftComponent implements OnInit {
 
   ngOnInit(): void {
     this.decisionTreeService.getTreeList().subscribe((treeList) => {
-      console.log(treeList);
         for(let tree of treeList) {
 
           let listBoxTree = {
@@ -43,22 +42,23 @@ export class SidebarLeftComponent implements OnInit {
         }
         this.listItemList = this.listItemList;
 
-      // if(this.listItemList.length = 0) {
-      //   this.listItemList = [
-      //     {
-      //       label: 'Barack Obama',
-      //       value: {
-      //         icon: faTree,
-      //       },
-      //     },
-      //     {
-      //       label: 'Michelle Obama',
-      //       value: {
-      //         icon: faTree,
-      //       },
-      //     },
-      //   ];
-      // }
+        
+      if(this.listItemList.length == 0) {
+        this.listItemList = [
+          {
+            label: 'Barack Obama',
+            value: {
+              icon: faTree,
+            },
+          },
+          {
+            label: 'Michelle Obama',
+            value: {
+              icon: faTree,
+            },
+          },
+        ];
+      }
       
     });
 
