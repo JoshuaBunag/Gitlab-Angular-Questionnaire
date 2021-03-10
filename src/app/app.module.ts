@@ -72,7 +72,8 @@ import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-ru
     ButtonModule,
     MenubarModule,
     ListboxModule,
-    ContextMenuModule
+    ContextMenuModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

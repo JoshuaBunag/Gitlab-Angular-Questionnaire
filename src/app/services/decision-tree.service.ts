@@ -12,7 +12,12 @@ import { faGrinTongueSquint } from '@fortawesome/free-solid-svg-icons';
   providedIn: 'root',
 })
 export class DecisionTreeService {
-  constructor() {}
+
+  constructor(private http: HttpClient) {}
+
+  getTreeList(): Observable<any[]> {
+    return this.http.get<any[]>(environment.apiBaseUrl + '/tree/versions');
+  }
 
   genTree(dtoTree: Rule): TreeNode[] {
     let node: TreeNode[] = [];
