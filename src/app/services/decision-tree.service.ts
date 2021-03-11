@@ -17,17 +17,32 @@ export class DecisionTreeService {
     private knotTransFormationSvc: KnotTransformationService
   ) {}
 
-  genTree(dtoTree: Rule): TreeNode[] {
-    let node: TreeNode[] = [];
-    node.push(this.genNode(dtoTree));
-    return node;
+  getKnotById(dtoTree: Knot[], knotId: number) {
+    return dtoTree.find((knot: Rule) => {
+      return knot.id == knotId;
+    });
+  }
+  getRootKnot(dtoTree: Knot[]): Knot {
+    return dtoTree.find((knot: Rule) => {
+      return knot.start == true;
+    });
   }
 
-  genChildNodes(dtoTree: Rule): TreeNode[] {
+  genTreeFromKnotList(dtoTree: Knot[]): TreeNode[] {
+    let node: TreeNode[] = [];
+    let rootKnot: Knot = this.getRootKnot(dtoTree);
+    node.push(this.genTree(rootKnot, dtoTree));
+    return node;
+  }
+  genChildNodes(knot: Rule, dtoTree: Knot[]): TreeNode[] {
     let childList: TreeNode[] = [];
-    if (dtoTree.nextKnotAllocations.length > 0) {
-      for (let nextKnotAllocation of dtoTree.nextKnotAllocations) {
-        childList.push(this.genNode(nextKnotAllocation.nextKnot));
+    if (knot.nextKnotAllocations.length > 0) {
+      for (let nextKnotAllocation of knot.nextKnotAllocations) {
+        let childKnot: Knot = this.getKnotById(
+          dtoTree,
+          nextKnotAllocation.idNextKnot
+        );
+        childList.push(this.genTree(childKnot, dtoTree));
       }
     }
     return childList;
@@ -44,21 +59,20 @@ export class DecisionTreeService {
     }
     return nodeStyle;
   }
-  genNode(dtoTree: Knot): TreeNode {
+  genTree(knot: Knot, dtoTree: Knot[]): TreeNode {
     let rootNode: TreeNode = {
       data: {
-        id: dtoTree.id,
-        decisionFieldName:
-          dtoTree instanceof Rule ? dtoTree.decisionFieldName : undefined,
-        name: dtoTree.name,
-        start: dtoTree instanceof Rule ? dtoTree.start : undefined,
-        knotType: dtoTree.knotType,
+        id: knot.id,
+        fieldName: knot instanceof Rule ? knot.fieldName : undefined,
+        name: knot.name,
+        start: knot instanceof Rule ? knot.start : undefined,
+        knotType: knot.knotType,
       },
       expanded: true,
-      styleClass: this.getNodeStyleClass(dtoTree),
-      type: dtoTree instanceof Rule ? 'RULE' : 'SCENARIO',
+      styleClass: this.getNodeStyleClass(knot),
+      type: knot instanceof Rule ? 'RULE' : 'SCENARIO',
       children:
-        dtoTree instanceof Rule ? this.genChildNodes(dtoTree) : undefined,
+        knot instanceof Rule ? this.genChildNodes(knot, dtoTree) : undefined,
     };
 
     return rootNode;

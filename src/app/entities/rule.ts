@@ -3,7 +3,7 @@ import { NextKnotAllocation } from '@entities/next-knot-allocation';
 
 export class Rule extends Knot{
   public start: boolean;
-  public decisionFieldName: string;
+  public fieldName: string;
 
   public nextKnotAllocations: NextKnotAllocation[] = [];
 
