@@ -19,17 +19,17 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { MultiSelectModule } from 'primeng/multiselect';
-import {OrganizationChartModule} from 'primeng/organizationchart';
+import { OrganizationChartModule } from 'primeng/organizationchart';
 import { ListboxModule } from 'primeng/listbox';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TabViewModule } from 'primeng/tabview';
 import { DragDropModule } from 'primeng/dragdrop';
 import { MenubarModule } from 'primeng/menubar';
-import { ScrollPanelModule } from 'primeng/scrollpanel';
 // --------------------------------------------------------
 // PROJECT CORE
 // --------------------------------------------------------
@@ -73,7 +73,8 @@ import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-ru
     MenubarModule,
     ListboxModule,
     ContextMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    ScrollPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent],

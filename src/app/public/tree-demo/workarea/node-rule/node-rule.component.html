@@ -12,6 +12,31 @@
         <div class="col-attr-name"><span>Type</span></div>
         <div class="col-attr-value">
           {{ treeNode.data.knotType }}
+          <div *ngIf="treeNode.data.prevKnotAllocation != undefined">
+            <div
+              *ngIf="
+                treeNode.data.prevKnotAllocation.type == 'ELSE_ALLOCATION';
+                else elseBlock
+              "
+            >
+           
+              <div>
+                ELSE
+              </div>
+              <div>
+                {{ treeNode.data.prevKnotAllocation.idNextKnot }}
+              </div>
+            </div>
+            <ng-template #elseBlock>
+              <div>
+                {{ treeNode.data.prevKnotAllocation.compareValue }}
+              </div>
+              <div>
+                {{ treeNode.data.prevKnotAllocation.idNextKnot }}
+              </div>
+              </ng-template
+            >
+          </div>
         </div>
       </div>
       <div class="data-row">

@@ -8,6 +8,7 @@ import { Knot } from '../entities/knot';
 import { TreeNode } from 'primeng/api';
 import { KnotTransformationService } from '@services/knot-transformation.service';
 import { catchError, map } from 'rxjs/operators';
+import { NextKnotAllocation } from '@entities/next-knot-allocation';
 @Injectable({
   providedIn: 'root',
 })
@@ -31,7 +32,7 @@ export class DecisionTreeService {
   genTreeFromKnotList(dtoTree: Knot[]): TreeNode[] {
     let node: TreeNode[] = [];
     let rootKnot: Knot = this.getRootKnot(dtoTree);
-    node.push(this.genTree(rootKnot, dtoTree));
+    node.push(this.genTree(rootKnot, dtoTree, null));
     return node;
   }
   genChildNodes(knot: Rule, dtoTree: Knot[]): TreeNode[] {
@@ -42,7 +43,7 @@ export class DecisionTreeService {
           dtoTree,
           nextKnotAllocation.idNextKnot
         );
-        childList.push(this.genTree(childKnot, dtoTree));
+        childList.push(this.genTree(childKnot, dtoTree, nextKnotAllocation));
       }
     }
     return childList;
@@ -59,7 +60,8 @@ export class DecisionTreeService {
     }
     return nodeStyle;
   }
-  genTree(knot: Knot, dtoTree: Knot[]): TreeNode {
+  genTree(knot: Knot, dtoTree: Knot[], prevKnotAllocation: NextKnotAllocation): TreeNode {
+
     let rootNode: TreeNode = {
       data: {
         id: knot.id,
@@ -67,6 +69,7 @@ export class DecisionTreeService {
         name: knot.name,
         start: knot instanceof Rule ? knot.start : undefined,
         knotType: knot.knotType,
+        prevKnotAllocation: prevKnotAllocation
       },
       expanded: true,
       styleClass: this.getNodeStyleClass(knot),

@@ -1,10 +1,12 @@
-<h2 class="text-center">Work Area</h2>
-<h3>Tree Name: <span *ngIf="entity!= undefined" >{{entity.label }}</span></h3>
-<div class="divider"></div>
-<div class="justify-content-center">
+<h2 class="text-center padding-title">Work Area</h2>
+<!-- <h3>
+  Tree Name: <span *ngIf="entity != undefined">{{ entity.label }}</span>
+</h3> -->
+<p-scrollPanel [style]="{ width: '100%', height: '100%' }" class="tree">
   <p-organizationChart [value]="tree">
     <!-- SCENARIO -->
     <ng-template let-treeNode pTemplate="RULE">
+      <div></div>
       <app-node-rule [node]="treeNode"></app-node-rule>
     </ng-template>
     <!-- SCENARIO -->
@@ -12,4 +14,4 @@
       <app-node-scenario [node]="treeNode"></app-node-scenario>
     </ng-template>
   </p-organizationChart>
-</div>
+</p-scrollPanel>
