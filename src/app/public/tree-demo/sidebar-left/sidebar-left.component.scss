@@ -1,10 +1,20 @@
+.btn-sidebar{
+  margin: 5px;
+}
+.dialog-footer{
+  display: flex;
+  justify-content: center;
+}
+.btn-dialog{
+  width: 100%;
+}
 .fav-item {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.sidebar-con {
+.sidebar-left {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .primengbutton {

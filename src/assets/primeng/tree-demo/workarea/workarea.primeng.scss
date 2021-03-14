@@ -1,18 +1,22 @@
+.workarea {
+  max-width: 76%;
+}
+
 .node {
   padding: 0 !important;
   margin: 0 !important;
-
   display: flex;
   flex-direction: column;
   border: none;
   border-radius: 5px !important;
   background: transparent !important;
+
   .node-container {
     display: flex;
     flex-direction: row;
     .node-content {
       margin-left: 50px;
-      width: 220px;
+      width: min-content;
     }
     .node-buttons {
       width: 50px;
@@ -22,6 +26,7 @@
     }
   }
   .node-title {
+    display: flex;
     font-weight: bold;
     justify-content: center;
     border-top-left-radius: 5px !important;
@@ -53,23 +58,27 @@
     .data-row {
       display: flex;
       flex-direction: row;
-      justify-content: left;
+      justify-content: center;
       color: black;
       font-size: 0.9em;
+      text-align: center;
       .col-attr-name {
         display: flex;
         width: 25%;
-        justify-content: left;
+        text-align: left;
       }
       .col-attr-value {
         padding-left: 5px;
         display: flex;
-        width: 75%;
-        justify-content: left;
-      }
-      &.scen-row {
-        display: flex;
-        justify-content: center;
+        width: 100%;
+        text-align: left;
+
+        &.scen-row {
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          width: 100%;
+        }
       }
     }
   }

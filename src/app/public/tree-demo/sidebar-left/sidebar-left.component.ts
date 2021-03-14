@@ -16,6 +16,9 @@ export class SidebarLeftComponent implements OnInit {
   listItemList: SelectItem[] = [];
   selectedListItem: any;
   lastCtxMenu: ContextMenu;
+  newTreeFormVisible: boolean = false;
+  newTreeName: string;
+  progressSpinnerVisible: boolean = false;
   @Output() listItemEmitter = new EventEmitter<any>();
   @Output() draggableExport = new EventEmitter<any>();
 
@@ -25,25 +28,25 @@ export class SidebarLeftComponent implements OnInit {
     { label: 'Remove' },
   ];
 
-  constructor(private decisionTreeService: DecisionTreeService) {}
+  constructor(private decisionTreeService: DecisionTreeService) { }
 
   ngOnInit(): void {
     this.decisionTreeService.getTreeList().subscribe((treeList) => {
-        for(let tree of treeList) {
+      for (let tree of treeList) {
 
-          let listBoxTree = {
-            label: tree.name,
-            value: {
-              id: tree.id,
-              icon: faTree
-            },
-          }
-          this.listItemList = [...this.listItemList, listBoxTree];
+        let listBoxTree = {
+          label: tree.name,
+          value: {
+            id: tree.id,
+            icon: faTree
+          },
         }
-        this.listItemList = this.listItemList;
+        this.listItemList = [...this.listItemList, listBoxTree];
+      }
+      this.listItemList = this.listItemList;
 
-        
-      if(this.listItemList.length == 0) {
+
+      if (this.listItemList.length == 0) {
         this.listItemList = [
           {
             label: 'Barack Obama',
@@ -59,15 +62,26 @@ export class SidebarLeftComponent implements OnInit {
           },
         ];
       }
-      
+
     });
 
-   
+
   }
-  // addEvent() {
-  //   this.cities = [...this.cities, { name: 'Makati', Code: 'mkt' }];
-  //   console.log('h');
-  // }
+  showNewTreeForm() {
+    console.log('Show new tree module');
+    this.newTreeFormVisible = true;
+  }
+
+  createNewTree() {
+    console.log('Create New Tree: ' + this.newTreeName);
+    this.progressSpinnerVisible = true;
+    
+    this.newTreeFormVisible = false;
+    // setTimeout(function () {
+    //   console.log('hide form now');
+    //   this.progressSpinnerVisible = false;
+    // }, 1000);
+  }
 
   show(event: any, entity: any): void {
     this.listItemEmitter.next(this.selectedListItem);

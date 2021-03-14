@@ -59,7 +59,7 @@ import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-ru
     SidebarRightComponent,
     WorkareaComponent,
     NodeScenarioComponent,
-    NodeRuleComponent,
+    NodeRuleComponent    
   ],
   imports: [
     BrowserModule,
@@ -74,7 +74,10 @@ import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-ru
     ListboxModule,
     ContextMenuModule,
     HttpClientModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    DialogModule,
+    InputTextModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

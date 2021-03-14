@@ -18,7 +18,6 @@ export class WorkareaComponent implements OnInit {
   ngOnInit(): void {
     this.decisionTreeService.getRootRule().subscribe((dtoTree: Knot[]) => {
       this.tree = this.decisionTreeService.genTreeFromKnotList(dtoTree);
-      console.log(this.tree);
       if (this.tree.length > 0) {
       }
     });

@@ -1,6 +1,22 @@
-<div class="node-title align-items-center">Scenario</div>
-<div class="node-data">
-  <div class="data-row scen-row">
-    {{ treeNode.data.name }}
+<div class="node-container">
+  <div class="node-content">
+    <div class="node-title">
+        {{ treeNode.data.prevKnotAllocation.type }}
+        {{
+        treeNode.data.prevKnotAllocation.compareValue }}
+    </div>
+    <div class="node-data">
+      <div class="data-row">
+        <div class="col-attr-value scen-row">
+          {{ treeNode.data.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="node-buttons">
+    <div class="node-buttons-display">
+      <button *ngIf="btnRmvVisible(treeNode)" name="btnRmv" pButton pRipple type="button" icon="pi pi-times"
+        class="p-button-rounded p-button-danger p-button-outlined"></button>
+    </div>
   </div>
 </div>

@@ -1,19 +1,12 @@
-<div class="sidebar-con justify-content-center">
-  <p-listbox
-    [options]="listItemList"
-    filter="true"
-    placeholder="Enter object key"
-    [style]="{ height: '100%', padding: 0 }"
-  >
+<div class="sidebar-left justify-content-center">
+  <button pButton type="button" label="New Tree" (click)="showNewTreeForm()" class="btn-sidebar"></button>
+
+  <p-listbox [options]="listItemList" filter="true" placeholder="Enter object key"
+    [style]="{ height: '100%', padding: 0 }">
     <!-- [(ngModel)]="selectedFav" -->
-    <ng-template #ctxmenudiv let-listItem pTemplate="item" >
-      <p-contextMenu
-        #ctxmenu
-        [target]="ctxmenudiv"
-        [model]="ctxItemList"
-        appendTo="body"
-        event="contextmenu"
-      ></p-contextMenu>
+    <ng-template #ctxmenudiv let-listItem pTemplate="item">
+      <p-contextMenu #ctxmenu [target]="ctxmenudiv" [model]="ctxItemList" appendTo="body" event="contextmenu">
+      </p-contextMenu>
       <div #ctxmenudiv class="fav-item d-flex align-items-center" (contextmenu)="toggleCtxMenu(listItem, ctxmenu)">
         <div class="col">
           <fa-icon [icon]="listItem.value.icon"></fa-icon>
@@ -22,4 +15,18 @@
       </div>
     </ng-template>
   </p-listbox>
+
+  <p-dialog header="Generate New Tree" [(visible)]="newTreeFormVisible">
+    <div>Tree Name:</div>
+    <input type="text" pInputText [(ngModel)]="newTreeName" />
+    <p-footer class="dialog-footer">
+      <button pButton type="button" label="Cancel" (click)="newTreeFormVisible = false" class="btn-dialog"></button>
+      <button pButton type="button" label="Create" (click)="createNewTree()" class="btn-dialog">
+
+        <p-progressSpinner *ngIf="progressSpinnerVisible" [strokeWidth]="5" clas="progress-spinner">
+        </p-progressSpinner>
+
+      </button>
+    </p-footer>
+  </p-dialog>
 </div>

@@ -1,6 +1,9 @@
 <div class="node-container">
   <div class="node-content">
-    <div class="node-title">Rule</div>
+    <div class="node-title">
+      <div *ngIf="treeNode.data.prevKnotAllocation != undefined">{{ treeNode.data.prevKnotAllocation.type }}  {{ treeNode.data.prevKnotAllocation.compareValue }}</div>
+      <div *ngIf="treeNode.data.start">Start</div>
+    </div>
     <div class="node-data">
       <div class="data-row">
         <div class="col-attr-name">Name</div>
@@ -12,31 +15,6 @@
         <div class="col-attr-name"><span>Type</span></div>
         <div class="col-attr-value">
           {{ treeNode.data.knotType }}
-          <div *ngIf="treeNode.data.prevKnotAllocation != undefined">
-            <div
-              *ngIf="
-                treeNode.data.prevKnotAllocation.type == 'ELSE_ALLOCATION';
-                else elseBlock
-              "
-            >
-           
-              <div>
-                ELSE
-              </div>
-              <div>
-                {{ treeNode.data.prevKnotAllocation.idNextKnot }}
-              </div>
-            </div>
-            <ng-template #elseBlock>
-              <div>
-                {{ treeNode.data.prevKnotAllocation.compareValue }}
-              </div>
-              <div>
-                {{ treeNode.data.prevKnotAllocation.idNextKnot }}
-              </div>
-              </ng-template
-            >
-          </div>
         </div>
       </div>
       <div class="data-row">
@@ -49,25 +27,10 @@
   </div>
   <div class="node-buttons">
     <div class="node-buttons-display">
-      <button
-        *ngIf="btnAddVisible(treeNode)"
-        name="btnAdd"
-        pButton
-        pRipple
-        (click)="addNode(treeNode)"
-        type="button"
-        icon="pi pi-plus"
-        class="p-button-rounded p-button-success p-button-outlined"
-      ></button>
-      <button
-        *ngIf="btnRmvVisible(treeNode)"
-        name="btnRmv"
-        pButton
-        pRipple
-        type="button"
-        icon="pi pi-times"
-        class="p-button-rounded p-button-danger p-button-outlined"
-      ></button>
+      <button *ngIf="btnAddVisible(treeNode)" name="btnAdd" pButton pRipple (click)="addNode(treeNode)" type="button"
+        icon="pi pi-plus" class="p-button-rounded p-button-success p-button-outlined"></button>
+      <button *ngIf="btnRmvVisible(treeNode)" name="btnRmv" pButton pRipple type="button" icon="pi pi-times"
+        class="p-button-rounded p-button-danger p-button-outlined"></button>
     </div>
   </div>
 </div>
