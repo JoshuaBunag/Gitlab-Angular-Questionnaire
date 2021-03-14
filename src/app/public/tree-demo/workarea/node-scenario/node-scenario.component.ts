@@ -16,10 +16,8 @@ export class NodeScenarioComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  btnRmvVisible(treeNode: any): boolean {
-    if(treeNode.children != undefined && treeNode.children.length > 0) {
-      return false;
-    }
+  removeNode(treeNode: any): boolean {
+    console.log(treeNode);
     return true;
   }
   btnAddVisible(treeNode: any): boolean {

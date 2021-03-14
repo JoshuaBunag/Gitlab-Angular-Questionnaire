@@ -16,7 +16,7 @@
     flex-direction: row;
     .node-content {
       margin-left: 50px;
-      width: min-content;
+      // width: min-content;
     }
     .node-buttons {
       width: 50px;
@@ -32,8 +32,8 @@
     border-top-left-radius: 5px !important;
     border-top-right-radius: 5px !important;
     color: white;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
     padding-top: 0.7em;
     padding-bottom: 0.5em;
     margin: 0;

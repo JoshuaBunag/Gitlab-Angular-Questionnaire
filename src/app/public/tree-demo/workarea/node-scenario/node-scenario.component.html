@@ -15,7 +15,7 @@
   </div>
   <div class="node-buttons">
     <div class="node-buttons-display">
-      <button *ngIf="btnRmvVisible(treeNode)" name="btnRmv" pButton pRipple type="button" icon="pi pi-times"
+      <button (click)="removeNode(treeNode)" name="btnRmv" pButton pRipple type="button" icon="pi pi-times"
         class="p-button-rounded p-button-danger p-button-outlined"></button>
     </div>
   </div>
