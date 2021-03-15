@@ -6,11 +6,11 @@
   <p-organizationChart [value]="tree">
     <!-- SCENARIO -->
     <ng-template let-treeNode pTemplate="RULE">
-      <app-node-rule [node]="treeNode"></app-node-rule>
+      <app-node-rule [node]="treeNode" (treeNodeDeletionEmitter)="deleteKnot($event)"></app-node-rule>
     </ng-template>
     <!-- SCENARIO -->
     <ng-template let-treeNode pTemplate="SCENARIO">
-      <app-node-scenario [node]="treeNode"></app-node-scenario>
+      <app-node-scenario [node]="treeNode" (treeNodeDeletionEmitter)="deleteKnot($event)"></app-node-scenario>
     </ng-template>
   </p-organizationChart>
 </p-scrollPanel>

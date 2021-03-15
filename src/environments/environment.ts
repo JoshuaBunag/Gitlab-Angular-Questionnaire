@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8081/decision_tree_backend',
+  apiBaseUrl: 'http://localhost:8080/decision_tree_backend',
 };
 
 /*

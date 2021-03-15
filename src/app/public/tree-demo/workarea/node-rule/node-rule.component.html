@@ -29,7 +29,7 @@
     <div class="node-buttons-display">
       <button *ngIf="btnAddVisible(treeNode)" name="btnAdd" pButton pRipple (click)="addNode(treeNode)" type="button"
         icon="pi pi-plus" class="p-button-rounded p-button-success p-button-outlined"></button>
-      <button *ngIf="btnRmvVisible(treeNode)" name="btnRmv" pButton pRipple type="button" icon="pi pi-times"
+      <button name="btnRmv" pButton pRipple (click)="removeNode(treeNode)" type="button" icon="pi pi-times"
         class="p-button-rounded p-button-danger p-button-outlined"></button>
     </div>
   </div>

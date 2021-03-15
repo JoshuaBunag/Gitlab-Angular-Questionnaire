@@ -16,7 +16,42 @@ export class DecisionTreeService {
   constructor(
     private http: HttpClient,
     private knotTransFormationSvc: KnotTransformationService
-  ) {}
+  ) { }
+
+  knotListRemoveElement(dtoTree: Knot[], knotId: number): Knot[] {
+    dtoTree = dtoTree.filter((knot: any) => {
+      if (knot.nextKnotAllocations != undefined && knot.nextKnotAllocations.length > 0) {
+        // remove nextKnotAllocations pointing at the current element
+        knot.nextKnotAllocations = knot.nextKnotAllocations.filter((nextKnotAllocation: any) => {
+          return nextKnotAllocation.idNextKnot != knotId;
+        });
+      }
+      return knot.id != knotId;
+    });
+    return dtoTree;
+  }
+
+  removeKnotById(dtoTree: Knot[], knotId: number): Knot[] {
+
+    for (let knot of dtoTree) {
+      if (knot instanceof Scenario && knot.id == knotId) {
+        dtoTree = this.knotListRemoveElement(dtoTree, knotId);
+      }
+
+      if (knot instanceof Rule) {
+        if (knot.id == knotId) {
+          if (knot.nextKnotAllocations != undefined && knot.nextKnotAllocations.length > 0) {
+            for (let nextKnotAllocation of knot.nextKnotAllocations) {
+              dtoTree = this.removeKnotById(dtoTree, nextKnotAllocation.idNextKnot)
+            }
+          }
+          dtoTree =  this.knotListRemoveElement(dtoTree, knot.id)
+        }
+      }
+    }
+    console.log(dtoTree);
+    return dtoTree;
+  }
 
   getKnotById(dtoTree: Knot[], knotId: number) {
     return dtoTree.find((knot: Rule) => {
@@ -82,7 +117,7 @@ export class DecisionTreeService {
   }
 
   getTreeList(): Observable<any[]> {
-    return this.http.get<any[]>(environment.apiBaseUrl + '/tree/versions');
+    return this.http.get<any[]>(environment.apiBaseUrl + '/trees/versions');
   }
 
   getRootRule(): Observable<Knot[]> {

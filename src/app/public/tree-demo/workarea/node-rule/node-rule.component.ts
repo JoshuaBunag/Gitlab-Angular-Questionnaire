@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-node-rule',
@@ -10,16 +10,14 @@ export class NodeRuleComponent implements OnInit {
   @Input() set node(node: any) {
     this.treeNode = node;
   }
+  @Output() treeNodeDeletionEmitter = new EventEmitter<any>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  btnRmvVisible(treeNode: any): boolean {
-    if(treeNode.children.length > 0) {
-      return false;
-    }
-    return true;
+  removeNode(treeNode: any): void {
+    this.treeNodeDeletionEmitter.next(treeNode);
   }
   btnAddVisible(treeNode: any): boolean {
     return true;
