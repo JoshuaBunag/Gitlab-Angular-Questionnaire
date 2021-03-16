@@ -120,9 +120,9 @@ export class DecisionTreeService {
     return this.http.get<any[]>(environment.apiBaseUrl + '/trees/versions');
   }
 
-  getRootRule(): Observable<Knot[]> {
+  getRootRule(treeId: number): Observable<Knot[]> {
     return this.http
-      .get<Knot[]>(environment.apiBaseUrl + '/knots/1')
+      .get<Knot[]>(environment.apiBaseUrl + '/knots/' + treeId)
       .pipe(map((knots) => this.knotTransFormationSvc.convertTreeKnots(knots)));
   }
 }

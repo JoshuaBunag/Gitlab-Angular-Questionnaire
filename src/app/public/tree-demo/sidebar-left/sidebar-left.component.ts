@@ -64,11 +64,12 @@ export class SidebarLeftComponent implements OnInit {
       }
 
     });
-
-
+  }
+  
+  show(event: any, entity: any): void {
+    this.listItemEmitter.next(this.selectedListItem);
   }
   showNewTreeForm() {
-    console.log('Show new tree module');
     this.newTreeFormVisible = true;
   }
 
@@ -83,11 +84,9 @@ export class SidebarLeftComponent implements OnInit {
     // }, 1000);
   }
 
-  show(event: any, entity: any): void {
-    this.listItemEmitter.next(this.selectedListItem);
-  }
 
-  toggleCtxMenu(listItem: any, ctxmenu: any): void {
+  toggleCtxMenu(selectedListItem: any, ctxmenu: any): void {
+    this.selectedListItem = selectedListItem;
     if (this.lastCtxMenu != null) {
       this.lastCtxMenu.containerViewChild.nativeElement.style.display = 'none';
     }

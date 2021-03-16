@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tree-demo',
@@ -7,16 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreeDemoComponent implements OnInit {
 
-  entity: any;
-  
+
+  showTree: any;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showEntity(entity: any): void {
-    console.log('show entity');
-    this.entity = entity;
-    console.log(entity);
+  showEntity(selectedListItem: any): void {
+    this.showTree = selectedListItem;
   }
 }

@@ -3,11 +3,12 @@
 
   <p-listbox [options]="listItemList" filter="true" placeholder="Enter object key"
     [style]="{ height: '100%', padding: 0 }">
-    <!-- [(ngModel)]="selectedFav" -->
-    <ng-template #ctxmenudiv let-listItem pTemplate="item">
+
+
+    <ng-template let-listItem pTemplate="item">
       <p-contextMenu #ctxmenu [target]="ctxmenudiv" [model]="ctxItemList" appendTo="body" event="contextmenu">
       </p-contextMenu>
-      <div #ctxmenudiv class="fav-item d-flex align-items-center" (contextmenu)="toggleCtxMenu(listItem, ctxmenu)">
+      <div #ctxmenudiv class="fav-item align-items-center" (contextmenu)="toggleCtxMenu(listItem, ctxmenu)">
         <div class="col">
           <fa-icon [icon]="listItem.value.icon"></fa-icon>
           <span> {{ listItem.label }}</span>

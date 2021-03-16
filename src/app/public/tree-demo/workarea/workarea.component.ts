@@ -12,17 +12,22 @@ export class WorkareaComponent implements OnInit {
   treeKnotList: Knot[] = [];
   tree: TreeNode[] = [];
   btnVisibility: boolean = false;
-  @Input() entity: any;
 
-  constructor(private decisionTreeService: DecisionTreeService) {}
+  @Input() set showTree(tree: any) {
+    if (tree != undefined)
+      this.buildTreeById(tree.value.id);
+  };
+
+  constructor(private decisionTreeService: DecisionTreeService) { }
 
   ngOnInit(): void {
-    this.decisionTreeService.getRootRule().subscribe((dtoTree: Knot[]) => {
+    this.buildTreeById(1);
+  }
+
+  buildTreeById(treeId: number): void {
+    this.decisionTreeService.getRootRule(treeId).subscribe((dtoTree: Knot[]) => {
       this.treeKnotList = dtoTree;
       this.buildGuiTree(dtoTree);
-      // this.tree = this.decisionTreeService.genTreeFromKnotList(dtoTree);
-      // if (this.tree.length > 0) {
-      // }
     });
   }
 
@@ -30,7 +35,7 @@ export class WorkareaComponent implements OnInit {
     this.tree = this.decisionTreeService.genTreeFromKnotList(dtoTree);
   }
   deleteKnot(knot: any): void {
-    this.treeKnotList = this.decisionTreeService.removeKnotById(this.treeKnotList , knot.data.id);
-    this.buildGuiTree(this.treeKnotList );
+    this.treeKnotList = this.decisionTreeService.removeKnotById(this.treeKnotList, knot.data.id);
+    this.buildGuiTree(this.treeKnotList);
   }
 }
