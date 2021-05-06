@@ -8,6 +8,7 @@ pages:
     - npm install
     - npm run buildProd
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
+    - git push -f heroku master
   artifacts:
     paths:
       - public
