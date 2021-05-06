@@ -1,8 +1,12 @@
+image: node:14.16.1
 heroku:
   stage: deploy
   only:
     - master
   script:
+    - npm install -g @angular/cli@11.2.1
+    - npm install
+    - npm run buildProd
     - git config --global user.email "daniel.methner@outlook.com"
     - git config --global user.name "Daniel Methner"
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
