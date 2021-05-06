@@ -7,6 +7,7 @@ pages:
     - npm install -g @angular/cli@11.2.1
     - npm install
     - npm run buildProd
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
   artifacts:
     paths:
       - public
