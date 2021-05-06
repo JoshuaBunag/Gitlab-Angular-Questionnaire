@@ -1,12 +1,9 @@
 image: node:14.16.1
-heroku:
-  stage: deploy
-  only:
-    - master
-  script:
-    - npm install -g @angular/cli@11.2.1
-    - npm install
-    - npm run buildProd
-    - git config --global user.email "joshclarenceb@outlook.com"
-    - git config --global user.name "Josh Clarence Bunag"
-    - git push heroku origin master
+cache:
+  paths:
+    - node_modules/
+
+run:
+    script:
+      - npm install -g @angular/cli
+      - npm install
