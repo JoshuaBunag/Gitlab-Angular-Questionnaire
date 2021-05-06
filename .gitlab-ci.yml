@@ -9,5 +9,6 @@ heroku:
     - npm run buildProd
     - git config --global user.email "daniel.methner@outlook.com"
     - git config --global user.name "Daniel Methner"
+    - git commit -m "pushed on heroku from gitlab :)"
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
     - git push -f heroku master
