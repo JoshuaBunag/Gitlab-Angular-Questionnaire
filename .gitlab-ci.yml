@@ -9,4 +9,4 @@ heroku:
     - npm run buildProd
     - git config --global user.email "joshclarenceb@outlook.com"
     - git config --global user.name "Josh Clarence Bunag"
-    - git push heroku master
+    - git push heroku origin master
