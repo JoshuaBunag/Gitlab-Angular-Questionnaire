@@ -5,7 +5,5 @@ heroku:
   script:
     - git config --global user.email "daniel.methner@outlook.com"
     - git config --global user.name "Daniel Methner"
-    - git commit -m "initial commit"
-    - git push origin master
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
-    - git push heroku master
+    - git push -f heroku master
