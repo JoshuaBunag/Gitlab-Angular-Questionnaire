@@ -1,0 +1,9 @@
+image: node:14.16.1
+cache:
+  paths:
+    - node_modules/
+
+run:
+    script:
+      - npm install -g @angular/cli
+      - npm install
