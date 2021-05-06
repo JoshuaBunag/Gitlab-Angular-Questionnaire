@@ -1,5 +1,5 @@
 <div class="sidebar-left justify-content-center">
-  <button pButton type="button" label="New Tree" (click)="showNewTreeForm()" class="btn-sidebar"></button>
+  <button pButton pRipple type="button" label="New Tree" (click)="showNewTreeForm()" class="p-button-outlined"></button>
 
   <p-listbox [options]="listItemList" filter="true" placeholder="Enter object key"
     [style]="{ height: '100%', padding: 0 }">
@@ -21,8 +21,9 @@
     <div>Tree Name:</div>
     <input type="text" pInputText [(ngModel)]="newTreeName" />
     <p-footer class="dialog-footer">
-      <button pButton type="button" label="Cancel" (click)="newTreeFormVisible = false" class="btn-dialog"></button>
-      <button pButton type="button" label="Create" (click)="createNewTree()" class="btn-dialog">
+      <button pButton type="button" label="Cancel" (click)="newTreeFormVisible = false"
+        class="btn-dialog-cancel p-button-outlined"></button>
+      <button pButton type="button" label="Create" (click)="createNewTree()" class="btn-dialog-proceed">
 
         <p-progressSpinner *ngIf="progressSpinnerVisible" [strokeWidth]="5" clas="progress-spinner">
         </p-progressSpinner>

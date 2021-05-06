@@ -82,6 +82,21 @@
       }
     }
   }
+  .p-button {
+    &.p-button-success.p-button-outlined {
+      color: #008037 !important;
+      border: 2px solid;
+      &:hover {
+        border: 2px solid;
+      }
+    }
+
+    &.p-button-icon-only.p-button-rounded {
+      margin: 5px;
+      height: 2em;
+      width: 2em;
+    }
+  }
 }
 
 .p-organizationchart .p-organizationchart-node-content {
@@ -103,15 +118,6 @@
     }
   }
 }
-.p-button.p-button-outlined {
-  border: 3px solid !important;
-}
-
-.p-button.p-button-icon-only.p-button-rounded {
-  margin: 5px;
-  height: 2em;
-  width: 2em;
-}
 
 .node-container:hover {
   .node-buttons-display {
@@ -126,4 +132,14 @@
 
 .p-button-icon.pi {
   font-weight: bold;
+}
+
+.p-dialog {
+  border-radius: 10px;
+  .p-dialog-header {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-color: #ccffcc;
+    height: 2em;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import { DecisionTreeService } from '@services/decision-tree.service';
+import { Knot } from '@entities/knot';
 @Component({
   selector: 'app-node-rule',
   templateUrl: './node-rule.component.html',
@@ -11,19 +12,26 @@ export class NodeRuleComponent implements OnInit {
     this.treeNode = node;
   }
   @Output() treeNodeDeletionEmitter = new EventEmitter<any>();
+  // @Output() treeNodeNewEmitter = new EventEmitter<any>();
+  newKnotDialogVisible = false;
+  constructor(private decisionTreeService: DecisionTreeService) { }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   removeNode(treeNode: any): void {
     this.treeNodeDeletionEmitter.next(treeNode);
   }
+
+  // return if btn to add new knot is visible
   btnAddVisible(treeNode: any): boolean {
     return true;
   }
 
   addNode(treeNode: any): void {
-    console.log('add node');
+    this.newKnotDialogVisible = true;
+  }
+
+  closeDialog(): void {
+    this.newKnotDialogVisible = false;
   }
 }

@@ -45,7 +45,7 @@ export class DecisionTreeService {
               dtoTree = this.removeKnotById(dtoTree, nextKnotAllocation.idNextKnot)
             }
           }
-          dtoTree =  this.knotListRemoveElement(dtoTree, knot.id)
+          dtoTree = this.knotListRemoveElement(dtoTree, knot.id)
         }
       }
     }
@@ -96,22 +96,25 @@ export class DecisionTreeService {
     return nodeStyle;
   }
   genTree(knot: Knot, dtoTree: Knot[], prevKnotAllocation: NextKnotAllocation): TreeNode {
+    let rootNode: TreeNode;
+    if (knot != undefined) {
 
-    let rootNode: TreeNode = {
-      data: {
-        id: knot.id,
-        fieldName: knot instanceof Rule ? knot.fieldName : undefined,
-        name: knot.name,
-        start: knot instanceof Rule ? knot.start : undefined,
-        knotType: knot.knotType,
-        prevKnotAllocation: prevKnotAllocation
-      },
-      expanded: true,
-      styleClass: this.getNodeStyleClass(knot),
-      type: knot instanceof Rule ? 'RULE' : 'SCENARIO',
-      children:
-        knot instanceof Rule ? this.genChildNodes(knot, dtoTree) : undefined,
-    };
+      rootNode = {
+        data: {
+          id: knot.id,
+          fieldName: knot instanceof Rule ? knot.fieldName : undefined,
+          name: knot.name,
+          start: knot instanceof Rule ? knot.start : undefined,
+          knotType: knot.knotType,
+          prevKnotAllocation: prevKnotAllocation
+        },
+        expanded: true,
+        styleClass: this.getNodeStyleClass(knot),
+        type: knot instanceof Rule ? 'RULE' : 'SCENARIO',
+        children:
+          knot instanceof Rule ? this.genChildNodes(knot, dtoTree) : undefined,
+      };
+    }
 
     return rootNode;
   }

@@ -1,11 +1,29 @@
-.btn-sidebar{
+.p-button {
+  margin: 5px;
+  border-radius: 5px;
+
+  &.p-button-outlined {
+    color: #008037;
+    border: 1px solid;
+  }
+  &.btn-dialog-cancel {
+    color: black;
+    margin: 3px;
+  }
+  &.btn-dialog-proceed {
+    background-color: #008037;
+    border: #008037;
+    font-weight: bold;
+  }
+}
+.btn-sidebar {
   margin: 5px;
 }
-.dialog-footer{
+.dialog-footer {
   display: flex;
   justify-content: center;
 }
-.btn-dialog{
+.btn-dialog {
   width: 100%;
 }
 .fav-item {

@@ -5,14 +5,14 @@
   padding: 0;
 }
 
-.p-listbox .p-listbox-list{
+.p-listbox .p-listbox-list {
   padding: 0;
 }
 .p-dialog .p-dialog-footer button {
   width: 100%;
   margin: 0.1em;
 }
-.p-progress-spinner{
+.p-progress-spinner {
   display: flex !important;
   height: 20px !important;
   width: 20px !important;
@@ -20,11 +20,11 @@
 
 .p-progress-spinner-circle {
   stroke: #ffffff !important;
-stroke-dasharray: 89,200;
-stroke-dashoffset: 0;
-stroke-linecap: round;
+  stroke-dasharray: 89, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
 }
 
-.progress-spinner{
+.progress-spinner {
   padding-right: 10px;
 }

@@ -4,13 +4,17 @@
 </h3> -->
 <p-scrollPanel [style]="{ width: '100%', height: '100%' }" class="tree">
   <p-organizationChart [value]="tree">
-    <!-- SCENARIO -->
+    <!-- RULE -->
     <ng-template let-treeNode pTemplate="RULE">
-      <app-node-rule [node]="treeNode" (treeNodeDeletionEmitter)="deleteKnot($event)"></app-node-rule>
+      <app-node-rule [node]="treeNode" (treeNodeDeletionEmitter)="deleteKnot($event)"
+        (treeNodeNewEmitter)="showNewKnotDialog($event)"></app-node-rule>
+
     </ng-template>
     <!-- SCENARIO -->
     <ng-template let-treeNode pTemplate="SCENARIO">
       <app-node-scenario [node]="treeNode" (treeNodeDeletionEmitter)="deleteKnot($event)"></app-node-scenario>
     </ng-template>
   </p-organizationChart>
+
+
 </p-scrollPanel>

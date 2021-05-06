@@ -1,7 +1,8 @@
 <div class="node-container">
   <div class="node-content">
     <div class="node-title">
-      <div *ngIf="treeNode.data.prevKnotAllocation != undefined">{{ treeNode.data.prevKnotAllocation.type }}  {{ treeNode.data.prevKnotAllocation.compareValue }}</div>
+      <div *ngIf="treeNode.data.prevKnotAllocation != undefined">{{ treeNode.data.prevKnotAllocation.type }} {{
+        treeNode.data.prevKnotAllocation.compareValue }}</div>
       <div *ngIf="treeNode.data.start">Start</div>
     </div>
     <div class="node-data">
@@ -27,10 +28,16 @@
   </div>
   <div class="node-buttons">
     <div class="node-buttons-display">
+      <!-- ADD NODE -->
       <button *ngIf="btnAddVisible(treeNode)" name="btnAdd" pButton pRipple (click)="addNode(treeNode)" type="button"
         icon="pi pi-plus" class="p-button-rounded p-button-success p-button-outlined"></button>
+      <!-- REMOVE NODE -->
       <button name="btnRmv" pButton pRipple (click)="removeNode(treeNode)" type="button" icon="pi pi-times"
         class="p-button-rounded p-button-danger p-button-outlined"></button>
     </div>
   </div>
+
+  <!-- ADD KNOT DIALOG -->
+  <!-- [node]="treeNode" [newKnotDialogVisible] -->
+  <app-node-new-dialog *ngIf="newKnotDialogVisible" (closeDialogEmitter)="closeDialog()"></app-node-new-dialog>
 </div>

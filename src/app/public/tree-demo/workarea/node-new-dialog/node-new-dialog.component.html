@@ -1,0 +1,9 @@
+<p-dialog header="Add New Knot" [style]="{width: '20vw'}" [closable]="false" [(visible)]="newKnotDialogVisible">
+<!--   -->
+
+    <p-footer>
+        <button pButton type="button" label="Cancel" (click)="closeDialog()"
+            class="btn-dialog-cancel p-button-outlined"></button>
+        <button pButton type="button" label="Add" (click)="addNewNode()" class="btn-dialog-proceed"></button>
+    </p-footer>
+</p-dialog>

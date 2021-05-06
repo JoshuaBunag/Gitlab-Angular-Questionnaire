@@ -1,0 +1,18 @@
+.dialog{
+  background-color: green;
+}
+
+.p-button {
+  border-radius: 3px;
+  width: 5em;
+  margin: 0.5em;
+  margin-bottom: 0;
+  &.p-button-outlined {
+    border-color: black !important;
+    color: black !important;
+  }
+}
+
+.p-dialog .p-dialog-content {
+  background-color: black;
+}

@@ -3,15 +3,20 @@
   padding: 0;
 }
 
-.padding-title{
-    padding: 0.5em;
+.padding-title {
+  padding: 0.5em;
 }
-.workarea-container{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.workarea-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.tree{
-     height: calc(90% - 2em);
+.tree {
+  height: calc(90% - 2em);
 }
-
+.p-dialog {
+  background-color: green;
+  &.p-dialog-content {
+    background-color: aqua;
+  }
+}

@@ -46,6 +46,7 @@ import { SidebarRightComponent } from './public/tree-demo/sidebar-right/sidebar-
 import { WorkareaComponent } from './public/tree-demo/workarea/workarea.component';
 import { NodeScenarioComponent } from './public/tree-demo/workarea/node-scenario/node-scenario.component';
 import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-rule.component';
+import { NodeNewDialogComponent } from './public/tree-demo/workarea/node-new-dialog/node-new-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-ru
     SidebarRightComponent,
     WorkareaComponent,
     NodeScenarioComponent,
-    NodeRuleComponent    
+    NodeRuleComponent,
+    NodeNewDialogComponent    
   ],
   imports: [
     BrowserModule,
