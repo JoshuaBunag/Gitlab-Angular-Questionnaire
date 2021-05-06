@@ -1,17 +1,7 @@
-image: node:14.16.1
-pages:
-  cache:
-    paths:
-      - node_modules/
-  script:
-    - npm install -g @angular/cli@11.2.1
-    - npm install
-    - npm run buildProd
-    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
-    - git push -f heroku master
-  artifacts:
-    paths:
-      - public
+heroku:
+  stage: deploy
   only:
     - master
-    - pages
+  script:
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
+    - git push -f heroku master
