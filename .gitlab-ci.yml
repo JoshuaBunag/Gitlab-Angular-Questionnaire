@@ -3,5 +3,7 @@ heroku:
   only:
     - master
   script:
+    - git commit -m "initial commit"
+    - git push origin master
     - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/questionnare.git
     - git push heroku master
