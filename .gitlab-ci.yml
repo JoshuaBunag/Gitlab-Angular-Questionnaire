@@ -7,4 +7,5 @@ run:
     script:
       - npm install -g @angular/cli
       - npm install
+      - npm install -g heroku
       - heroku login
