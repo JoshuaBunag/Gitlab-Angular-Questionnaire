@@ -25,10 +25,10 @@ export class KnotTransformationService {
         for (let nextKnotAllocRaw of treeKnotRaw['nextKnots']) {
           let nextKnotAlloc = new NextKnotAllocation();
           nextKnotAlloc.id = nextKnotAllocRaw.id;
-          nextKnotAlloc.allocationType = nextKnotAllocRaw.allocationType;
+          nextKnotAlloc.allocationType = nextKnotAllocRaw.type;
           nextKnotAlloc.compareValue = nextKnotAllocRaw.compareValue;
           nextKnotAlloc.idNextKnot = nextKnotAllocRaw.idNextKnot;
-          rule.nextKnotAllocations.push(nextKnotAllocRaw);
+          rule.nextKnotAllocations.push(nextKnotAlloc);
         }
         treeKnot = rule;
       }

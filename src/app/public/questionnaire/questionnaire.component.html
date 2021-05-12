@@ -4,9 +4,7 @@
 
 <input type="number" pInputText [(ngModel)]="height" placeholder="height"/>
 <input type="number" pInputText [(ngModel)]="weight" placeholder="weight"/>
-<button pButton type="button" label="Decide" [disabled]="!isHeightAndWeightFilled()" (click)="makeDecisionInBackend()" class="btn-dialog-proceed">
-
-</button>
+<button pButton type="button" label="Decide" [disabled]="!isHeightAndWeightFilled()" (click)="makeDecisionInBackend()" class="btn-dialog-proceed"></button>
 
 <p-dialog id="result-dialog" header="Result" [(visible)]="showResultDialog">
   <p>{{result}}</p>
@@ -17,3 +15,10 @@
 <p>After each single question we look up next knot in decision tree and ask for necessary information,
   to avoid a ridiculous amount of backend calls we make that look up in frontend</p>
 <P>(entire decision making is in frontend, not possible if decision making process is secret)</P>
+
+<div>
+  <p class="{{currentRule ? 'show' : 'hide'}}">Question: {{question}}</p>
+  <input type="text" pInputText [(ngModel)]="answer"/>
+  <button pButton type="button" label="Decide" (click)="processAnswer()" class="btn-dialog-proceed"></button>
+  <p class="{{questionnaireResult ? 'show' : 'hide'}}">Result: {{questionnaireResult}}</p>
+</div>
