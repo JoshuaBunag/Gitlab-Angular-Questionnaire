@@ -4,9 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { TreeDemoComponent } from './public/tree-demo/tree-demo.component';
 import { ImprintComponent } from './public/imprint/imprint.component';
 import { DataPrivacyComponent } from './public/data-privacy/data-privacy.component';
+import {QuestionnaireComponent} from './public/questionnaire/questionnaire.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: TreeDemoComponent },
+  { path : 'questionnaire', component: QuestionnaireComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'data-privacy', component: DataPrivacyComponent },
 ];

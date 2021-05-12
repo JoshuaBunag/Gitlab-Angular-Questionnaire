@@ -18,6 +18,10 @@ export class NavbarComponent implements OnInit {
         routerLink: 'home',
       },
       {
+        label: 'Questionnaire',
+        routerLink: 'questionnaire',
+      },
+      {
         label: 'Data Privacy',
         routerLink: 'data-privacy',
       },

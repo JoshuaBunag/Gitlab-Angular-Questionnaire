@@ -9,6 +9,7 @@ import { TreeNode } from 'primeng/api';
 import { KnotTransformationService } from '@services/knot-transformation.service';
 import { catchError, map } from 'rxjs/operators';
 import { NextKnotAllocation } from '@entities/next-knot-allocation';
+import {MapEntry} from '../domain/MapEntry';
 @Injectable({
   providedIn: 'root',
 })
@@ -128,4 +129,12 @@ export class DecisionTreeService {
       .get<Knot[]>(environment.apiBaseUrl + '/knots/' + treeId)
       .pipe(map((knots) => this.knotTransFormationSvc.convertTreeKnots(knots)));
   }
+
+  makeAppealDecision(height: number, weight: number): Observable<string> {
+    const values = [new MapEntry('HEIGHT', height + ''), new MapEntry('WEIGHT', weight + '')];
+    return this.http
+      .post<Scenario>(environment.apiBaseUrl + '/decision/appeal', values, {responseType: 'json'})
+      .pipe(map((scenario) => scenario.name));
+  }
+
 }

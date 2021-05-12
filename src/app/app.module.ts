@@ -47,6 +47,7 @@ import { WorkareaComponent } from './public/tree-demo/workarea/workarea.componen
 import { NodeScenarioComponent } from './public/tree-demo/workarea/node-scenario/node-scenario.component';
 import { NodeRuleComponent } from './public/tree-demo/workarea/node-rule/node-rule.component';
 import { NodeNewDialogComponent } from './public/tree-demo/workarea/node-new-dialog/node-new-dialog.component';
+import { QuestionnaireComponent } from './public/questionnaire/questionnaire.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { NodeNewDialogComponent } from './public/tree-demo/workarea/node-new-dia
     WorkareaComponent,
     NodeScenarioComponent,
     NodeRuleComponent,
-    NodeNewDialogComponent    
+    NodeNewDialogComponent,
+    QuestionnaireComponent    
   ],
   imports: [
     BrowserModule,

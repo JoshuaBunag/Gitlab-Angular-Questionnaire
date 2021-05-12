@@ -1,0 +1,19 @@
+<h1>Use Case 1: all information are already gathered when decision process starts (a bunch of information may be gathered anyway)</h1>
+<p>In that case we just send these information as a request dto to our decision service in the backend and get the result</p>
+<p>(ensure that either all necessary information existing to make decision or handle that case with response to user)</p>
+
+<input type="number" pInputText [(ngModel)]="height" placeholder="height"/>
+<input type="number" pInputText [(ngModel)]="weight" placeholder="weight"/>
+<button pButton type="button" label="Decide" [disabled]="!isHeightAndWeightFilled()" (click)="makeDecisionInBackend()" class="btn-dialog-proceed">
+
+</button>
+
+<p-dialog id="result-dialog" header="Result" [(visible)]="showResultDialog">
+  <p>{{result}}</p>
+</p-dialog>
+
+<h1>Use Case 2: user starts from scratch and doesn't even know which information are relevant (questionnaire dedicated to make decision)</h1>
+<p>In that case we only want to ask for information we really need to make the decision</p>
+<p>After each single question we look up next knot in decision tree and ask for necessary information,
+  to avoid a ridiculous amount of backend calls we make that look up in frontend</p>
+<P>(entire decision making is in frontend, not possible if decision making process is secret)</P>
