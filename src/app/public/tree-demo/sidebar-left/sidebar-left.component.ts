@@ -16,7 +16,7 @@ export class SidebarLeftComponent implements OnInit {
   listItemList: SelectItem[] = [];
   selectedListItem: any;
   lastCtxMenu: ContextMenu;
-  newTreeFormVisible: boolean = false;
+  newTreeFormVisible: boolean = true;
   newTreeName: string;
   progressSpinnerVisible: boolean = false;
   @Output() listItemEmitter = new EventEmitter<any>();

@@ -20,14 +20,55 @@
   <p-dialog header="Generate New Tree" [(visible)]="newTreeFormVisible">
     <div>Tree Name:</div>
     <input type="text" pInputText [(ngModel)]="newTreeName" />
+    <div class="sidebar-left justify-content-center">
+      <button pButton pRipple type="button" label="New Tree" (click)="showNewTreeForm()" class="p-button-outlined"></button>
+      
+      <p-listbox [options]="listItemList" filter="true" placeholder="Enter object key"
+      [style]="{ height: '100%', padding: 0 }">
+      
+      
+      <ng-template let-listItem pTemplate="item">
+      <p-contextMenu #ctxmenu [target]="ctxmenudiv" [model]="ctxItemList" appendTo="body" event="contextmenu">
+      </p-contextMenu>
+      <div #ctxmenudiv class="fav-item align-items-center" (contextmenu)="toggleCtxMenu(listItem, ctxmenu)">
+      <div class="col">
+      <fa-icon [icon]="listItem.value.icon"></fa-icon>
+      <span> {{ listItem.label }}</span>
+      </div>
+      </div>
+      </ng-template>
+      </p-listbox>
+      
+      <p-dialog header="Generate New Tree" [(visible)]="newTreeFormVisible">
+      <div>Name:</div>
+      <input type="string" pInputText [(ngModel)]="newTreeName" />
+      <div>Date Input (datepicker):</div>
+      <input type="value" pInputText [(ngModel)]="newTreeName" />
+      <div>Integer Input (entire number, 1,2,3,4,5...):</div>
+      --> try to develop a validation, that only allows integers and turns the input field red, in case the user enters the wrong value (like a letter)
+      --> also, when clicking on the create button, any field with the wrong value as well as any empty field, should light up red and prevent the dialog from going through.
+      <input type="text" pInputText [(ngModel)]="newTreeName" />
+      <div>Range Input (from 1 to x, integer or float):</div>
+      <div class="row">
+      <div class="col-3">
+      <div>From:</div>
+      <input type="text" pInputText [(ngModel)]="newTreeName" />
+      </div>
+      <div class="col-3">
+      <div>To:</div>
+      <input type="text" pInputText [(ngModel)]="newTreeName" />
+      </div>
+      </div>
+      <div>Floating Input (decimal 1.235, 123.5242):</div>
+      <input type="text" pInputText [(ngModel)]="newTreeName" />
+      <div>Boolean Input (true or false, slider, radio button, whatever):</div>
+      <input type="text" pInputText [(ngModel)]="newTreeName" />
     <p-footer class="dialog-footer">
       <button pButton type="button" label="Cancel" (click)="newTreeFormVisible = false"
         class="btn-dialog-cancel p-button-outlined"></button>
       <button pButton type="button" label="Create" (click)="createNewTree()" class="btn-dialog-proceed">
-
         <p-progressSpinner *ngIf="progressSpinnerVisible" [strokeWidth]="5" clas="progress-spinner">
         </p-progressSpinner>
-
       </button>
     </p-footer>
   </p-dialog>
