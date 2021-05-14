@@ -18,9 +18,21 @@ export class SidebarLeftComponent implements OnInit {
   lastCtxMenu: ContextMenu;
   newTreeFormVisible: boolean = true;
   newTreeName: string;
-  progressSpinnerVisible: boolean = false;
+  newTreeDate: string;
+  intvalue: number;
+  rangeValues: [];
+  To: string;
+  From: string;
+  progressSpinnerVisible: boolean = true;
+  NoteToChangeThis: boolean = false;
   @Output() listItemEmitter = new EventEmitter<any>();
   @Output() draggableExport = new EventEmitter<any>();
+
+//Boolean 
+  stateOptions: any[];
+
+    booleanCheck: string = "false";
+
 
   cities: any[];
   ctxItemList: MenuItem[] = [
@@ -28,7 +40,10 @@ export class SidebarLeftComponent implements OnInit {
     { label: 'Remove' },
   ];
 
-  constructor(private decisionTreeService: DecisionTreeService) { }
+  constructor(private decisionTreeService: DecisionTreeService) { 
+    //boolean
+    this.stateOptions = [{label: 'False', value: 'false'}, {label: 'True', value: 'true'}];
+}
 
   ngOnInit(): void {
     this.decisionTreeService.getTreeList().subscribe((treeList) => {
@@ -75,9 +90,17 @@ export class SidebarLeftComponent implements OnInit {
 
   createNewTree() {
     console.log('Create New Tree: ' + this.newTreeName);
+    console.log('TreeName: '+ this.newTreeDate);
+    console.log('The range value is' + this.rangeValues);
+    console.log('this is integer value ' + this.intvalue);
+    console.log('To output' + this.To);
+    console.log('From output' + this.From)
+    console.log('boolean check' + this.booleanCheck)
     this.progressSpinnerVisible = true;
     
-    this.newTreeFormVisible = false;
+    this.newTreeFormVisible = true;
+
+    this.NoteToChangeThis = false;
     // setTimeout(function () {
     //   console.log('hide form now');
     //   this.progressSpinnerVisible = false;
@@ -86,7 +109,7 @@ export class SidebarLeftComponent implements OnInit {
 
 
   toggleCtxMenu(selectedListItem: any, ctxmenu: any): void {
-    this.selectedListItem = selectedListItem;
+   this.selectedListItem = selectedListItem;
     if (this.lastCtxMenu != null) {
       this.lastCtxMenu.containerViewChild.nativeElement.style.display = 'none';
     }

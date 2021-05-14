@@ -30,6 +30,13 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TabViewModule } from 'primeng/tabview';
 import { DragDropModule } from 'primeng/dragdrop';
 import { MenubarModule } from 'primeng/menubar';
+import {SliderModule} from 'primeng/slider';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {SelectButtonModule} from 'primeng/selectbutton';
+
+
+
+
 // --------------------------------------------------------
 // PROJECT CORE
 // --------------------------------------------------------
@@ -81,7 +88,12 @@ import { QuestionnaireComponent } from './public/questionnaire/questionnaire.com
     ScrollPanelModule,
     DialogModule,
     InputTextModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    CalendarModule,
+    SliderModule,
+    InputNumberModule,
+    SelectButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
