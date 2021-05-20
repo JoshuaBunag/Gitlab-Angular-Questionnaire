@@ -69,12 +69,6 @@ export class SidebarLeftComponent implements OnInit {
               icon: faTree,
             },
           },
-          {
-            label: 'Michelle Obama',
-            value: {
-              icon: faTree,
-            },
-          },
         ];
       }
 

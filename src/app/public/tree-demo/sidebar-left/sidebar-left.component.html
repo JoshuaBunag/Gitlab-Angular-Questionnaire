@@ -1,8 +1,8 @@
 <div class="sidebar-left justify-content-center">
   <button pButton pRipple type="button" label="New Tree" (click)="showNewTreeForm()" class="p-button-outlined"></button>
 
-  <p-listbox [options]="listItemList" filter="true" placeholder="Enter object key"
-    [style]="{ height: '100%', padding: 0 }">
+<!-- <p-listbox [options]="listItemList" filter="true" placeholder="Enter object key"
+    [style]="{ height: '100%', padding: 0 }"> -->
 
 
     <ng-template let-listItem pTemplate="item">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </ng-template>
-  </p-listbox>
+  <!-- </p-listbox> -->
 
  <!-- <p-dialog header="Generate New Tree" [(visible)]="NoteToChangeThis">
     <div>Tree Name:</div>
@@ -27,7 +27,7 @@
       [style]="{ height: '100%', padding: 0 }">
       
       
-      <ng-template let-listItem pTemplate="item">
+   <ng-template let-listItem pTemplate="item">
       <p-contextMenu #ctxmenu [target]="ctxmenudiv" [model]="ctxItemList" appendTo="body" event="contextmenu">
       </p-contextMenu>
       <div #ctxmenudiv class="fav-item align-items-center" (contextmenu)="toggleCtxMenu(listItem, ctxmenu)">
@@ -40,37 +40,36 @@
       </p-listbox>
       
       <p-dialog header="Generate New Tree" [(visible)]="newTreeFormVisible" [style]="{width: '40vw', height: '70vh'}">
-          <div class="p-field p-col-12 p-md-4">
-              <span class="p-float-label">
-                  <input type="text" id="inputtext" pInputText [(ngModel)]="newTreeName"> 
-                  <label for="inputtext">Tree Name</label>
-              </span>
-          </div>
-          <div id="calendar-container">
-            <p-calendar class="p-field p-col-12 p-md-4" [(ngModel)]="newTreeDate"></p-calendar>
+        <div class="p-field p-fluid">
+          <label for="username">Tree Name</label>
+          <input id="username" [(ngModel)]="newTreeName" type="username" pInputText aria-describedby="username-help"> 
+          <small id="username-help">Date of birth</small>
+      </div>
+          <div>
+            <p-calendar class="p-field p-fluid" [(ngModel)]="newTreeDate"> cal</p-calendar>
           </div>
             <div>
-              <div class="p-field p-col-11 p-md-4">
-                  <label for="integeronly">Integer Only </label>
-                  <p-inputNumber inputId="integeronly" [(ngModel)]="intvalue">
+              <div class="p-field p-fluid">
+                  <label for="integeronly">Integer</label>
+                  <p-inputNumber id="integeronly" inputId="integeronly" [(ngModel)]="intvalue">
                   </p-inputNumber>
               </div>
           </div>
           <div class="p-field p-col-12 p-md-4">
-            <label for="rangeValues">Values</label>
+            <label for="rangeValues">Range Slider</label>
             <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="0" [max]="100"></p-slider>
           </div>
-          <div>
-            <span class="p-float-label">
-              <input id="from-input" type="text" [(ngModel)]="From" pInputText> 
-              <label for="from-input">From</label>
-            </span>
-            <span class="p-float-label">
-              <input id="to-input" type="text" [(ngModel)]="To" pInputText> 
-              <label for="to-input">To</label>
-            </span>
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col">
+                <label for="from">From</label>
+                <input id="from" [(ngModel)]="From" type="text" pInputText> 
+            </div>
+            <div class="p-field p-col">
+                <label for="to">To</label>
+                <input [(ngModel)]="To" id="to" type="text" pInputText> 
+            </div>
         </div> 
-        <div>
+        <div class="p-fluid">
           <label for="booleanCheck">Boolean</label>
           <p-selectButton [options]="stateOptions" [(ngModel)]="booleanCheck" optionLabel="label" optionValue="value"></p-selectButton>
         </div>
